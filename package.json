@@ -1,0 +1,19 @@
+{
+  "name": "myth-of-adlez",
+  "version": "1.0.0",
+  "description": "JS game built in HomeTeam GameDev, led by H Trayford & Ryan Malm",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gamkedo-la/myth-of-adlez.git"
+  },
+  "author": "H Trayford, Ryan Malm, and members of HomeTeam GameDev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gamkedo-la/myth-of-adlez/issues"
+  },
+  "homepage": "https://github.com/gamkedo-la/myth-of-adlez#readme"
+}
