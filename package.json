@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/gamkedo-la/myth-of-adlez/issues"
   },
-  "homepage": "https://github.com/gamkedo-la/myth-of-adlez#readme"
+  "homepage": "https://github.com/gamkedo-la/myth-of-adlez#readme",
+  "devDependencies": {
+    "webpack": "^5.82.0",
+    "webpack-cli": "^5.1.0"
+  }
 }
