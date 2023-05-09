@@ -2,7 +2,7 @@
   "name": "myth-of-adlez",
   "version": "1.0.0",
   "description": "JS game built in HomeTeam GameDev, led by H Trayford & Ryan Malm",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "serve": "webpack serve --open",
     "build": "webpack"
