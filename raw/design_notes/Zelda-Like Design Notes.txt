@@ -18,4 +18,35 @@ Ability to carry bombs is an upgrade like the ability to shoot missiles in Metro
 	Shield/Magic Shield
 	Magic Cloak (reduce damage)
 	Compass (1 per dungeon)
-	Map (1 per dungeon)Music:	Any style (chip tunes or full orchestral, happy to take both)	Overworld (or by region if we have enough music for that) 	Dungeon (1 track for all but final dungeon, or 1 for each dungeon if we have enough)	Final Dungeon	
+	Map (1 per dungeon)Music:	Any style (chip tunes or full orchestral, happy to take both)	Overworld (or by region if we have enough music for that) 	Dungeon (1 track for all but final dungeon, or 1 for each dungeon if we have enough)	Final Dungeon
+
+Seals:
+	Seal of Fire
+		Located in the Temple of the Sun
+		Destroyed [location] with [tool]
+	Silver Seal
+		Located in the Temple of the Moon
+		Destroyed [location] with [tool]
+	Seal of Darkness
+		Located in the Temple of the Night
+		Destroyed [location] with [tool]
+	Water Seal
+		Located in the Tidal Temple
+		Destroyed [location] with [tool]
+
+Dungeons:
+	Temple of the Sun
+		Located in the High Desert
+		Entrance is surrounded by a half circle of pillars which cast a shadow on the entrance, except around noon when the pillar is too short, this is the only time the dungeon entrance opens
+		Contains the Fire Wand
+		Contains the Seal of Fire
+	Temple of the Moon
+		Located in the Red-rock Desert
+		Entrance is only open at night during the 3 days before, the day of, and the 3 days after the Full Moon
+		Contains the Silver Seal
+	Temple of the Night
+		Located in the same place as the Temple of the Moon, but its entrance is only open on the 3 days before, the day of, and the 3 days after the New Moon
+		Contains the Seal of Darkness
+	Tidal Temple
+		Located on the beach below the High Tide line => need to wait for the tide to go out to enter
+		Contains the Water Seal	
