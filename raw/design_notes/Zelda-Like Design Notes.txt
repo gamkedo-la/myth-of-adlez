@@ -1,6 +1,6 @@
 Story:
-The Adversary was banished to outer darkness and the gate to the world was sealed with 7 seals. These seals were scattered (one per world region except graveyard), hidden (one per dungeon), and guarded (one boss each). Over time the Guardians have been corrupted by the Adversary through the seals and evil has returned to the land. The End of Evil cannot be achieved while the adversary lives. Many heroes have sought to bring about the End of Evil, but all have failed. Can you succeed where so many have failed?Basic Idea:
-- Collect the seals from the guardians, use certain items in a certain place to destroy the seals & grant access to final dungeon to destroy the final boss
+The Adversary was banished to outer darkness and the Gate of the World was sealed with the Seven Seals. These seals were scattered [one per world region except swamp], hidden [one per dungeon], and guarded [one boss/Guardian each]. Millenia of peace and prosperity followed where none suffered. Eventually the Guardians were corrupted by the Adversary through the Seals. Evil and suffering have returned. The End of Evil cannot be achieved while the Adversary lives. Many heroes have sought to bring about the End of Evil, but all have failed. Can you succeed where so many have failed?Basic Idea:
+- Collect the Seven Seals by defeating the seven Guardians. Use a specific item in a specific place to destroy each Seal. Destroying all seven Seals opens the Gate of the World, allowing the player to enter the final dungeon and destroy the Adversary.
 - Each seal must be destroyed using a specific item, in a specific location
 - Clues about what item and what location are associated with each seal are located in both the overworld and the dungeons
 - Expect to need a clue from both the overworld and a dungeon to know how/where to destroy a seal
@@ -12,41 +12,79 @@ Only face/attack Up/Down/Left/Right
 Zelda-like screen scrolling / inventory screen access
 Most screens in the overworld should contain a secret (bombable wall, burnable bush, movable statue/rock)
 Ability to carry bombs is an upgrade like the ability to shoot missiles in Metroid, you need to accomplish something before you can carry bombs
-World Regions:	Red-rock Desert: Sandstone, Grand Canyon, Hoo Doos, lizards, snakes, cacti	High Desert: Sand, Sand Dunes, snakes, scorpions, emptiness	Temperate Rain Forest: Tall Trees, Big Bears, rivers, lakes, rain, fish, big foot	Grasslands: Grass, rolling hills, wide-open	Coastal Sand Beach: Sand & Surf, Tide that hides/shows rows/columns of tiles	Coastal Rocky Beach: Granite, Cliffs, Wind, Waves violently smashing the rocks, crabs
+World Regions:	Red-rock Desert: Sandstone, Grand Canyon, Hoo Doos, lizards, snakes, cacti	High Desert: Sand, Sand Dunes, snakes, scorpions, emptiness	Temperate Rain Forest: Tall Trees, Big Bears, rivers, lakes, rain, fish, big foot	Grasslands: Grass, rolling hills, wide-open	Coastal Sand Beach: Sand & Surf, Tide that hides/shows rows/columns of tiles	Coastal Rocky Shore: Granite, Cliffs, Wind, Waves violently smashing the rocks, crabs
 	Swamp: dead stuff, undead, noxious fumes, dreary, will-o-the-wisps, getting lost
-	Graveyard/"Barrow Downs": graves, undead, spookyTools/Weapons:	Copper/Steel/Magic Sword	Hook-Shot (grab stuff, traverse otherwise non-traversable gaps/hazards)	Flint&Steel (burn bushes/light torches/etc after a random number of attempts)	Fire Wand (10 charges, rechargeable at the “Fire Altar”)	Bow	Arrow	Magical Bow (10 charges, shoots magic arrows, rechargeable somewhere)	Bomb (Explosive bottle aka Molotov?)	Key	Magic Key (10 charges, rechargeable somewhere)	Spell Book (infinite charges for all charged items)	Bracers of Strength (metal bands covering arms from wrist to elbow, grant strength to move large stones or statues)
+	Graveyard/"Barrow Downs": graves, undead, spookyTools/Weapons:	Copper/Steel/Magic Sword	Hook-Shot (grab stuff, traverse otherwise non-traversable gaps/hazards)	Flint & Steel (burn bushes/light torches/etc after a random number of attempts)	Wand of Fire (10 charges, rechargeable at the “Fire Altar”)	Bow	Arrow	Magical Bow (10 charges, shoots magic arrows, rechargeable somewhere)	Bomb (Explosive bottle aka Molotov?)	Key	Magic Key (10 charges, rechargeable somewhere)	Spell Book (infinite charges for all charged items)	Bracers of Strength (metal bands covering arms from wrist to elbow, grant strength to move large stones or statues)
 	Shield/Magic Shield
 	Magic Cloak (reduce damage)
 	Compass (1 per dungeon)
 	Map (1 per dungeon)Music:	Any style (chip tunes or full orchestral, happy to take both)	Overworld (or by region if we have enough music for that) 	Dungeon (1 track for all but final dungeon, or 1 for each dungeon if we have enough)	Final Dungeon
 
 Seals:
-	Seal of Fire
+	Seal of Fire / Sol's Seal
 		Located in the Temple of the Sun
 		Destroyed [location] with [tool]
-	Silver Seal
+	Seal of Quicksilver / Luna's Seal
 		Located in the Temple of the Moon
 		Destroyed [location] with [tool]
-	Seal of Darkness
+	Seal of Darkness / Nox' Seal
 		Located in the Temple of the Night
 		Destroyed [location] with [tool]
-	Water Seal
+	Seal of Change / Poseidon's Seal
 		Located in the Tidal Temple
 		Destroyed [location] with [tool]
+	Seal of Stability / Golem's Seal
+		Located in the Mountain Temple
+		Destroyed [location] with [tool]
+	Seal of Life / Druid's Seal
+		Located in the Forest Temple
+		Destroyed [location] with [tool]
+	Seal of Death / Mordeth's Seal
+		Located in the Temple of the Void
+		Destroyed [location] with [tool]
+	
 
 Dungeons:
 	Temple of the Sun
 		Located in the High Desert
 		Entrance is surrounded by a half circle of pillars which cast a shadow on the entrance, except around noon when the pillar is too short, this is the only time the dungeon entrance opens
 		Contains the Fire Wand
-		Contains the Seal of Fire
+		Contains the Seal of Fire / Sol's Seal
 	Temple of the Moon
-		Located in the Red-rock Desert
+		Located in the Coastal Rocky Shore
 		Entrance is only open at night during the 3 days before, the day of, and the 3 days after the Full Moon
-		Contains the Silver Seal
+		Contains the Seal of Quicksilver / Luna's Seal
 	Temple of the Night
 		Located in the same place as the Temple of the Moon, but its entrance is only open on the 3 days before, the day of, and the 3 days after the New Moon
-		Contains the Seal of Darkness
+		Contains the Seal of Darkness / Nox' Seal
 	Tidal Temple
 		Located on the beach below the High Tide line => need to wait for the tide to go out to enter
-		Contains the Water Seal	
+		Contains the Seal of Change / Poseidon's Seal
+	Mountain Temple
+		Located in the Red-rock Desert
+		Contains the Seal of Stability / Golem's Seal
+	Forest Temple
+		Located in the Temperate Rain Forest
+		Contains the Seal of Life / Druid's Seal
+	Temple of the Void
+		Located in the Graveyard
+		Contains the Seal of Death / Modeth's Seal
+	Temple of the Gate
+		Located in the Swamp
+		Guardian: The AdversaryWand of Fire:
+	Enter Room, steel door locks behind you, cannot be opened from this side it also has a wooden door that can only be burned with magical fire
+	There is a fire in the center of the room
+	Move a block to reveal staircase
+	Go down and collect Wand of Fire
+	Wand of Fire has 0 charges
+	Wand of Fire acts as a magical club when it has 0 charges
+	“Attacking” the fire in the center of the room with the Wand of Fire fills the wand to its full 10 charges
+	The wooden door can be burned with fire from the Wand of Fire
+	The Wand of Fire can always be recharged to 10 charges this way
+	The Wand of Fire can also be charged up to 1 charge (from 0) with the Flint & Steel (equip both and use the Flint & Steel), this allows the player to create a single magical fire.
+	The Wand of Fire has infinite charges when the player possesses the Spell Book
+
+Seals:
+	Possessing a seal attracts enemies from the dungeon it was retrieved from
+	Destroyed seals become fast travel devices that take you to the location where they were destroyed
+	
