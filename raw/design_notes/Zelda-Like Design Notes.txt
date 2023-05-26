@@ -15,6 +15,7 @@ Ability to carry bombs is an upgrade like the ability to shoot missiles in Metro
 World Regions:	Red-rock Desert: Sandstone, Grand Canyon, Hoo Doos, lizards, snakes, cacti	High Desert: Sand, Sand Dunes, snakes, scorpions, emptiness	Temperate Rain Forest: Tall Trees, Big Bears, rivers, lakes, rain, fish, big foot	Grasslands: Grass, rolling hills, wide-open	Coastal Sand Beach: Sand & Surf, Tide that hides/shows rows/columns of tiles	Coastal Rocky Shore: Granite, Cliffs, Wind, Waves violently smashing the rocks, crabs
 	Swamp: dead stuff, undead, noxious fumes, dreary, will-o-the-wisps, getting lost
 	Graveyard/"Barrow Downs": graves, undead, spookyTools/Weapons:	Copper/Steel/Magic Sword	Hook-Shot (grab stuff, traverse otherwise non-traversable gaps/hazards)	Flint & Steel (burn bushes/light torches/etc after a random number of attempts)	Wand of Fire (10 charges, rechargeable at the “Fire Altar”)	Bow	Arrow	Magical Bow (10 charges, shoots magic arrows, rechargeable somewhere)	Bomb (Explosive bottle aka Molotov?)	Key	Magic Key (10 charges, rechargeable somewhere)	Spell Book (infinite charges for all charged items)	Bracers of Strength (metal bands covering arms from wrist to elbow, grant strength to move large stones or statues)
+	Boots of Speed
 	Shield/Magic Shield
 	Magic Cloak (reduce damage)
 	Compass (1 per dungeon)
@@ -23,24 +24,29 @@ Ability to carry bombs is an upgrade like the ability to shoot missiles in Metro
 Seals:
 	Seal of Fire / Sol's Seal
 		Located in the Temple of the Sun
+		Possession fully lights all screens (day-time in overworld)
 		Destroyed [location] with [tool]
 	Seal of Quicksilver / Luna's Seal
 		Located in the Temple of the Moon
 		Destroyed [location] with [tool]
 	Seal of Darkness / Nox' Seal
 		Located in the Temple of the Night
+		Possession makes all screens dark (night-time in overworld)
 		Destroyed [location] with [tool]
-	Seal of Change / Poseidon's Seal
+	Seal of Change / Trident's Seal
 		Located in the Tidal Temple
 		Destroyed [location] with [tool]
-	Seal of Stability / Golem's Seal
+	Seal of Stone / Golem's Seal
 		Located in the Mountain Temple
+		Possession automatically animates all statues on screen.
 		Destroyed [location] with [tool]
 	Seal of Life / Druid's Seal
 		Located in the Forest Temple
+		Possession causes all "normal" animals to be attracted to it (mob the player). This is in addition to causing dungeon creatures to appear in the overworld.
 		Destroyed [location] with [tool]
 	Seal of Death / Mordeth's Seal
 		Located in the Temple of the Void
+		Possession causes all undead to be attracted to it (mob the player). This is in addition to causing dungeon undead to appear in the overworld.
 		Destroyed [location] with [tool]
 	
 
@@ -68,7 +74,7 @@ Dungeons:
 		Contains the Seal of Life / Druid's Seal
 	Temple of the Void
 		Located in the Graveyard
-		Contains the Seal of Death / Modeth's Seal
+		Contains the Seal of Death / Mordeth's Seal
 	Temple of the Gate
 		Located in the Swamp
 		Guardian: The AdversaryWand of Fire:
@@ -83,6 +89,9 @@ Dungeons:
 	The Wand of Fire can always be recharged to 10 charges this way
 	The Wand of Fire can also be charged up to 1 charge (from 0) with the Flint & Steel (equip both and use the Flint & Steel), this allows the player to create a single magical fire.
 	The Wand of Fire has infinite charges when the player possesses the Spell Book
+
+Bracers of Strength:
+	Enable Adlez to move certain stones. Adds +1 to melee attack weapon damage (swords/clubs/etc)
 
 Seals:
 	Possessing a seal attracts enemies from the dungeon it was retrieved from
