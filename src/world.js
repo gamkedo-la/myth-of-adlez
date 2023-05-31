@@ -1,26 +1,44 @@
 const { createCamera } = require('./components/camera')
 const { createCube } = require('./components/cube')
 const { createScene } = require('./components/scene')
+const { createLight } = require('./components/lights')
 
 const { createRenderer } = require('./systems/renderer')
 const { Resizer } = require('./systems/resizer')
+const { Loop } = require('./systems/loop')
 
 let camera = null
 let scene = null
 let renderer = null
+let loop = null
 
 class World {
   constructor (container) {
     camera = createCamera()
     scene = createScene()
     renderer = createRenderer()
+    loop = new Loop(camera, scene, renderer)
 
     const cube = createCube()
-    scene.add(cube)
+    loop.addEntity(cube)
+    const light = createLight()
+    scene.add(cube, light)
 
     container.append(renderer.domElement)
 
     const resizer = new Resizer(container, camera, renderer)
+  }
+
+  start () {
+    loop.start()
+  }
+
+  stop () {
+    loop.stop()
+  }
+
+  async init () {
+
   }
 
   render () {

@@ -1,10 +1,13 @@
-import { ASPECT } from "../globals/constants";
+const { ASPECT } = require('../globals/constants')
 
 export default class Resizer {
   constructor(container, camera, renderer) {
     this.container = container
     this.camera = camera
     this.renderer = renderer
+    this.renderer.domElement.style.display = 'block'
+    this.renderer.domElement.style.margin = '0px auto'
+
     this.resize()
 
     this.renderer.setPixelRatio(window.devicePixelRatio)
@@ -23,8 +26,11 @@ export default class Resizer {
     this.renderer.setSize(widthToUse, heightToUse)
     this.renderer.domElement.style.width = `${widthToUse}px`
     this.renderer.domElement.style.height = `${heightToUse}px`
-    this.renderer.domElement.style.display = 'block'
-    this.renderer.domElement.style.margin = '0px auto'
+    this.onResize()
+  }
+
+  onResize () {
+    // Hook for world.js to access
   }
 }
 
