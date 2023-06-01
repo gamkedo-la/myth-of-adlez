@@ -1,10 +1,11 @@
-const { DirectionalLight } = require('three')
+const { AmbientLight, DirectionalLight } = require('three')
 
-function createLight () {
-  const light = new DirectionalLight('white', 8)
-  light.position.set(10, 10, 10)
+function createLights () {
+  const ambientLight = new AmbientLight('white', 2)
+  const mainLight = new DirectionalLight('white', 8)
+  mainLight.position.set(10, 10, 10)
 
-  return light
+  return { ambientLight, mainLight }
 }
 
-export { createLight }
+export { createLights }
