@@ -5,6 +5,8 @@ function createRenderer () {
     antialias: true
   })
 
+  renderer.shadowMap.enabled = true
+
   return renderer
 }
 

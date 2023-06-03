@@ -4,7 +4,7 @@ const { FOV, ASPECT, NEAR_CLIPPING, FAR_CLIPPING } = require('../globals/constan
 function createCamera () {
   const camera = new PerspectiveCamera(FOV, ASPECT, NEAR_CLIPPING, FAR_CLIPPING)
 
-  camera.position.z = 10
+  camera.position.z = 28.5
 
   return camera
 }
