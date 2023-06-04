@@ -1,11 +1,12 @@
-const { WebGLRenderer } = require('three')
+import { WebGLRenderer, PCFSoftShadowMap, VSMShadowMap } from 'three'
 
 function createRenderer () {
   const renderer = new WebGLRenderer({
-    antialias: true
+    // antialias: true
   })
 
   renderer.shadowMap.enabled = true
+  renderer.shadowMap.type = VSMShadowMap
 
   return renderer
 }

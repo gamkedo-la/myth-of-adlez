@@ -1,3 +1,5 @@
+import { CameraHelper } from 'three'
+
 // Globals
 const { DIRECTIONS } = require('./globals/directions')
 
@@ -27,6 +29,9 @@ class World {
     loop = new Loop(camera, scene, renderer)
 
     const { ambientLight, mainLight } = createLights()
+    loop.addEntity(mainLight)
+    const helper = new CameraHelper( mainLight.shadow.camera )
+
     scene.add(ambientLight, mainLight)
 
     container.append(renderer.domElement)
