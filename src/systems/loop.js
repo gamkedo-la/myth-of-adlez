@@ -1,4 +1,4 @@
-const { Clock } = require('three')
+import { Clock } from 'three'
 
 const clock = new Clock()
 const entities = []

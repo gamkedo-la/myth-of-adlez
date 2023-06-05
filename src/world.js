@@ -28,11 +28,11 @@ class World {
     renderer = createRenderer()
     loop = new Loop(camera, scene, renderer)
 
-    const { ambientLight, sun } = createLights()
-    loop.addEntity(sun)
-    const helper = new CameraHelper( sun.shadow.camera )
+    const { AMBIENT_LIGHT, SUN } = createLights()
+    loop.addEntity(SUN)
+    const helper = new CameraHelper( SUN.shadow.camera )
 
-    scene.add(ambientLight, sun)
+    scene.add(AMBIENT_LIGHT, SUN)
 
     container.append(renderer.domElement)
 

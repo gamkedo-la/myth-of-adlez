@@ -1,4 +1,4 @@
-import { WebGLRenderer, PCFSoftShadowMap, VSMShadowMap } from 'three'
+import { WebGLRenderer, VSMShadowMap } from 'three'
 
 function createRenderer () {
   const renderer = new WebGLRenderer({

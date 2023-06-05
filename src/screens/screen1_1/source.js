@@ -1,4 +1,4 @@
-const { GLTFLoader } = require('three/examples/jsm/loaders/GLTFLoader')
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 
 async function loadScreen(row, col) {
   const loader = new GLTFLoader()
