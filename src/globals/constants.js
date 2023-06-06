@@ -1,6 +1,51 @@
-module.exports = {
-  FOV: 35,
-  ASPECT: 16/9,
-  NEAR_CLIPPING: 0.1,
-  FAR_CLIPPING: 300
+import { Color } from 'three'
+
+const Consts = {
+  AMBIENT_DAY_INTENSITY: 1,
+  AMBIENT_NIGHT_COLOR: new Color('#86518F'), // mid-level purple, probably needs to be lighter, but lower intensity
+  AMBIENT_NIGHT_INTENSITY: 0.5,
+  DAY_LENGTH: 60, // length of a day in seconds
+  CAMERA_ASPECT: 16/9,
+  CAMERA_FAR_CLIPPING: 300,
+  CAMERA_FOV: 35,
+  CAMERA_NEAR_CLIPPING: 0.1,
+  MOON_COLOR: new Color('rgb(235, 235, 255)'), // slightly blue
+  MOON_CRESCENT_INTENSITY: 0.625,
+  MOON_FULL_INTENSITY: 1,
+  MOON_GIBBOUS_INTENSITY: 0.875,
+  MOON_HALF_INTENSITY: 0.75,
+  MOON_NEW_INTENSITY: 0.5,
+  MOON_PHASES: ['FULL', 'GIBBOUS', 'HALF', 'CRESCENT', 'NEW', 'CRESCENT', 'HALF', 'GIBBOUS'],
+  NIGHT_LENGTH: 60, // length of night in seconds
+  SUN_COLOR: new Color('rgb(255, 255, 224)'), // light yellow
+  SUN_INTENSITY: 2,
+  SUN_RISE_POS: { x: 100, y: 0, z: 50 },
+  SUN_SET_POS: { x: -100, y: 0, z: 50 }
 }
+
+
+
+
+export default Consts
+export const {
+  AMBIENT_DAY_INTENSITY,
+  AMBIENT_NIGHT_COLOR,
+  AMBIENT_NIGHT_INTENSITY,
+  CAMERA_ASPECT,
+  CAMERA_FAR_CLIPPING,
+  CAMERA_FOV,
+  CAMERA_NEAR_CLIPPING,
+  DAY_LENGTH,
+  MOON_COLOR,
+  MOON_CRESCENT_INTENSITY,
+  MOON_FULL_INTENSITY,
+  MOON_GIBBOUS_INTENSITY,
+  MOON_HALF_INTENSITY,
+  MOON_NEW_INTENSITY,
+  MOON_PHASES,
+  NIGHT_LENGTH,
+  SUN_COLOR,
+  SUN_INTENSITY,
+  SUN_RISE_POS,
+  SUN_SET_POS
+} = Consts

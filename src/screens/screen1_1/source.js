@@ -6,7 +6,6 @@ async function loadScreen(row, col) {
   const screenData = await loader.loadAsync(`./meshes/overworld/row${row}col${col}.glb`)
 
   screenData.scene.traverse(child => {
-      // child.castShadow = true
       child.receiveShadow = true  
   })
   const model = screenData.scene.children[0]

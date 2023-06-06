@@ -1,4 +1,4 @@
-const { ASPECT } = require('../globals/constants')
+const { CAMERA_ASPECT } = require('../globals/constants')
 
 export default class Resizer {
   constructor(container, camera, renderer) {
@@ -16,11 +16,11 @@ export default class Resizer {
 
   resize () {
     let widthToUse = window.innerWidth
-    let heightToUse = (1/ASPECT) * window.innerWidth
+    let heightToUse = (1/CAMERA_ASPECT) * window.innerWidth
   
     if (heightToUse > window.innerHeight) {
       heightToUse = window.innerHeight
-      widthToUse = ASPECT * heightToUse
+      widthToUse = CAMERA_ASPECT * heightToUse
     }
   
     this.renderer.setSize(widthToUse, heightToUse)
