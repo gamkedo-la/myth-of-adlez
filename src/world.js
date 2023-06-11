@@ -8,10 +8,8 @@ const { createRenderer } = require('./systems/renderer')
 const { Resizer } = require('./systems/resizer')
 const { Loop } = require('./systems/loop')
 
-// Screens
-const { loadScreen } = require('./screens/screen1_1/source')
-
 // Components
+const { loadScreen } = require('./components/screen')
 const { createCamera } = require('./components/camera')
 const { createScene } = require('./components/scene')
 const { createLights } = require('./components/lights')

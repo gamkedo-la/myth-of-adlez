@@ -34,7 +34,7 @@ const Consts = {
   SUN_COLOR: sunColor,
   SUN_DAY_NIGHT_COLOR: sunDayNightColor,
   SUN_INTENSITY: 2,
-  SUN_MAX_POS: { x: 100, y: -30, z: 100 }, // Sun is never in this position, but defines maximum values along all 3 axes
+  SUN_MAX_POS: { x: 100, y: -30, z: 100 }, // Sun is never in this position, but this defines maximum values along all 3 axes
   SUN_NIGHT_DAY_COLOR: sunNightDayColor,
   SUN_RISE_COLOR: sunRiseColor,
   SUN_RISE_POS: { x: 100, y: 0, z: 10 },
