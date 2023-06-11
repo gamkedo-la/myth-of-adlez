@@ -55,6 +55,10 @@ export default class Loop {
     entities.push(entity)
   }
 
+  addEntities (entities) {
+    entities.push(...entities)
+  }
+
   removeEntity (entity) {
     const indexToRemove = entities.findIndex(item => item === entity)
     entities.splice(indexToRemove, 1)

@@ -30,7 +30,6 @@ class World {
 
     const { AMBIENT_LIGHT, SUN } = createLights()
     loop.addEntity(SUN)
-    const helper = new CameraHelper( SUN.shadow.camera )
 
     scene.add(AMBIENT_LIGHT, SUN)
 
@@ -40,9 +39,13 @@ class World {
   }
 
   async init () {
-    const screenModel = await loadScreen(1, 1)
-    scene.add(screenModel)
-    loop.addEntity(screenModel)
+    const { earth, enemies, spawnPoints, colliders } = await loadScreen(1, 1)
+    earth.tick = (deltaTime) => {
+      // Do nothing, perhaps do nothing unless changing screens?
+    }
+    scene.add(earth, ...enemies, ...colliders)
+    loop.addEntity(earth)
+    loop.addEntities(enemies)
   }
 
   start () {
