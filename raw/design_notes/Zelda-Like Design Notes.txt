@@ -153,3 +153,21 @@ Overworld Enemies - Natural animals are corrupted versions of themselves (mutant
 	Swamp:
 		- Wil-o-the-Wisps:
 		- Zombies:
+
+Temple / Dungeon Enemies:
+	Temple of the Sun:
+		- 
+	Temple of the Moon:
+		-
+	Temple of the Night:
+		-
+	Temple of the Sea:
+		-
+	Mountain Temple:
+		-
+	Forest Temple:
+		-
+	Temple of the Void:
+		-
+	The Gate
+		-
