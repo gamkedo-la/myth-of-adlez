@@ -13,49 +13,9 @@ Top-Down view similar to LoZ
 Each screen is 19/6 aspect ratio
 Overworld is 15 x 10 screens
 Zelda-like screen scrolling / inventory screen access
-Most screens in the overworld should contain a secret (bombable wall, burnable bush, movable statue/rock)
+Most screens in the overworld should contain a secret (bombable wall, burnable bush, moveable statue/rock)
 Ability to carry bombs is an upgrade like the ability to shoot missiles in Metroid, you need to accomplish something before you can carry bombs
-
-World Regions:
-	Red-rock Desert: Sandstone, Grand Canyon, Hoo Doos, lizards, snakes, cacti
-	High Desert: Sand, Sand Dunes, snakes, scorpions, emptiness
-	Temperate Rain Forest: Tall Trees, Big Bears, rivers, lakes, rain, fish, big foot
-	Grasslands: Grass, rolling hills, wide-open
-	Coastal Sand Beach: Sand & Surf, Tide that hides/shows rows/columns of tiles
-	Coastal Rocky Shore: Granite, Cliffs, Wind, Waves violently smashing the rocks, crabs
-	Swamp: dead stuff, undead, noxious fumes, dreary, will-o-the-wisps, getting lost
-	Graveyard/"Barrow Downs": graves, undead, spooky
-
-Moon:
-	8 phases - Full, Gibbous, Half, Crescent, New, Anti-Crescent, Anti-Half, Anti-Gibbous
-	Goes to next phase each night, so it's an 8 day "month" instead of 28 days
-	Affects the tide based on phase. The tide is full in during Full Moon, full out during New Moon
-
-Tools/Weapons:
-	Copper/Steel Sword
-	Hook-Shot (grab stuff, traverse otherwise non-traversable gaps/hazards)
-	Flint & Steel (burn bushes/light torches/etc after a random number of attempts)
-	Bow
-	Arrow
-	Magical Bow (10 charges, shoots magic arrows, rechargeable somewhere)
-	Bomb (Explosive bottle aka Molotov?)
-	Key
-	Skeleton Key (grants access to the Temple of the Void)
-	Magic Key (10 charges, rechargeable somewhere)
-	Bracers of Strength
-	Trident
-	Shield
-	Compass (1 per dungeon - not necessarily in the dungeon)
-	Map (1 per dungeon - not necessarily in the dungeon)
-
-Special Items:
-	Sword of Death / Morda's Sword
-	Wand of Fire / Sol's Scepter - (10 charges, rechargeable at the “Fire Altar”)
-	Book of Life / Druid's Tomb
-	Boots of Quicksilver / Luna's Boots
-	Shield of Stone / Golem's Shield
-	Cloak of Darkness / Nox's Cloak
-	Bracers of Strength / Trident's Bracers
+Seals, Special Items, Temples, and Altars all have at least two names and we should alternate between them when giving the player information
 
 Music:
 	Any style (chip tunes or full orchestral, happy to take both)
@@ -63,20 +23,62 @@ Music:
  	Dungeon (1 track for all but final dungeon, or 1 for each dungeon if we have enough)
 	Final Dungeon
 
+World Regions:
+	High Desert: Sand, Sand Dunes, snakes, scorpions, emptiness (Temple of the Sun)
+	Coastal Rocky Shore: Granite, Cliffs, Wind, Waves violently smashing the rocks, crabs (Temple of the Moon & Temple of the Night)
+	Coastal Sand Beach: Sand & Surf, Tide that hides/shows rows/columns of tiles (Temple of the Sea)
+	Red-rock Desert: Sandstone, Grand Canyon, Hoo Doos, lizards, snakes, cacti (Mountain Temple)
+	Temperate Rain Forest: Tall Trees, Big Bears, rivers, lakes, rain, fish, big foot (Temple of Life)
+	Graveyard/"Barrow Downs": graves, undead, spooky (Temple of Death)
+	Swamp: dead stuff, undead, noxious fumes, dreary, will-o-the-wisps, getting lost (The Gate)
+
+Moon:
+	8 phases - Full, Gibbous, Half, Crescent, New, Anti-Crescent, Anti-Half, Anti-Gibbous
+	Goes to next phase each night, so it's an 8 day "month" instead of 28 days
+	Affects the tide based on phase. The tide is full in during Full Moon, full out during New Moon
+
+Tools/Weapons:
+	Club (given on first screen - It's dangerous to go alone)
+	Copper/Steel Sword (can be purchased - maybe a fetch quest too?)
+	Flint & Steel (burn bushes/light torches/etc after a random number of attempts)
+	Bow (can be purchased)
+	Arrow (cost 1 coin each, just like in LoZ)
+	Bomb (Explosive bottle aka Molotov?)
+	Key (unlocks any one door / chest)
+	Skeleton Key (grants access to the Temple of the Void)
+	Magic Key (unlocks all doors / chests)
+	Shield (blocks non-magical attacks from the front when the button is held)
+	Compass (1 per dungeon - not necessarily in the dungeon)
+	Map (1 per dungeon - not necessarily in the dungeon)
+
+Special Items:
+	Wand of Fire / Sol's Scepter - Like the Blue Candle from the LoZ
+	Boots of Quicksilver / Luna's Boots - Can move faster
+	Cloak of Darkness / Nox's Cloak - Enemies cannot 'see' Adlez at night
+	Bracers of Strength / Trident's Bracers - Club/Sword attacks deal more damage, can move stones
+	Shield of Stone / Golem's Shield - Magical Shield -> also blocks magical attacks from the front when button is held
+	Book of Life / Druid's Tomb - Slow health regen
+	Sword of Death / Morda's Sword - Deals Magical Damage, more than the Steel Sword
+
 Seals:
+	Possessing a seal attracts enemies from the dungeon it was retrieved from - this means Temple/Dungeon enemies in the overworld
+	Destroyed seals become fast travel devices that take you to the location where they were destroyed
+
 	Seal of Fire / Sol's Seal
 		Located in the Temple of the Sun
 		Possession makes it perpetually Day-Time
 		Destroyed on the Altar of Night  / Nox's Altar with the Bracers of Strength / Trident's Bracers
 	Seal of Quicksilver / Luna's Seal
 		Located in the Temple of the Moon
+		Possession makes it perpetually a Full Moon
 		Destroyed on the Altar of Fire / Sol's Altar with the Shield of Stone / Golem's Shield
 	Seal of Darkness / Nox' Seal
 		Located in the Temple of the Night
 		Possession makes it perpetually Night-Time
 		Destroyed on the Altar of Death / Morda's Altar with the Wand of Fire / Sol's Scepter
-	Seal of Change / Trident's Seal
-		Located in the Tidal Temple
+	Seal of Strength / Trident's Seal
+		Located in the Temple of the Sea
+		Possession extinguishes all fires (torches, Flint&Steel, Wand of Fire, etc.)
 		Destroyed on the Altar of Stone / Golem's Altar with the Cloak of Darkness / Nox's Cloak
 	Seal of Stone / Golem's Seal
 		Located in the Mountain Temple
@@ -85,14 +87,13 @@ Seals:
 	Seal of Life / Druid's Seal
 		Located in the Forest Temple
 		Possession causes all "normal" animals to be attracted to it (mob the player). This is in addition to causing dungeon creatures to appear in the overworld.
-		Destroyed on the Altar of Change / Trident's Altar with the Sword of Death / Morda's Sword
+		Destroyed on the Altar of Strength / Trident's Altar with the Sword of Death / Morda's Sword
 	Seal of Death / Morda's Seal
 		Located in the Temple of the Void
 		Possession causes all undead to be attracted to it (mob the player). This is in addition to causing dungeon undead to appear in the overworld.
 		Destroyed on the Altar of Life / Druid's Altar with the Quicksilver Boots / Luna's Boots
-	
 
-Dungeons:
+Temples / Dungeons:
 	Temple of the Sun
 		Located in the High Desert
 		Entrance is surrounded by a half circle of pillars which cast a shadow on the entrance, except around noon when the pillar is too short, this is the only time the dungeon entrance opens
@@ -107,10 +108,10 @@ Dungeons:
 		Located in the same place as the Temple of the Moon, but its entrance is only open on the night of the New Moon
 		Entrance is a deep (nearly black) purple pool or reflection of the night sky with stars visible within, a staircase leads down into the 'blackness'
 		Contains the Seal of Darkness / Nox' Seal
-	Tidal Temple
+	Tidal of the Sea
 		Located on the beach below the High Tide line => need to wait for the tide to go out to enter
 		The rocky outcrop the entrance appears in is visible above high tide but cannot be reached until near low tide
-		Contains the Seal of Change / Trident's Seal
+		Contains the Seal of Strength / Trident's Seal
 	Mountain Temple
 		Located in the Red-rock Desert
 		Entrance it flanked by two statues that block the entrance with weapons. They must be attacked to enter. Attacking them fully animates them so they can be killed or avoided.
@@ -123,47 +124,32 @@ Dungeons:
 		Located in the Graveyard
 		Entrance is in a mosoleum, requires the Skeleton Key to open
 		Contains the Seal of Death / Morda's Seal
-	Temple of the Gate
+	The Gate
 		Located in the Swamp
 		After destroying all the seals, must follow wil-o-the-wisps to the entrance
 		Guardian: The Adversary
-
-Wand of Fire (Sol's Scepter):
-	Enter Room, steel door locks behind you, cannot be opened from this side it also has a wooden door that can only be burned with magical fire
-	There is a fire in the center of the room
-	Move a block to reveal staircase
-	Go down and collect Wand of Fire
-	Wand of Fire has 0 charges
-	Wand of Fire acts as a magical club when it has 0 charges
-	“Attacking” the fire in the center of the room with the Wand of Fire fills the wand to its full 10 charges
-	The wooden door can be burned with fire from the Wand of Fire
-	The Wand of Fire can always be recharged to 10 charges this way
-	The Wand of Fire can also be charged up to 1 charge (from 0) with the Flint & Steel (equip both and use the Flint & Steel), this allows the player to create a single magical fire.
-	The Wand of Fire has infinite charges when the player possesses the Book of Life
-
-Bracers of Strength (Trident's Bracers):
-	Enable Adlez to move certain stones. Adds +1 to melee attack weapon damage (swords/clubs/etc)
-
-Sword of Death (Morda's Sword):
-	Deals magical damage that is higher than that dealt with the Steel Sword
-
-Book of Life (Druid's Tomb):
-	All charged items have infinite charges
-
-Cloak of Darkness (Nox's Cloak):
-	Enemies cannot 'see' the player when it is night
-
-Shield of Stone (Golem's Shield):
-	Effectively a "magical shield", provides better protection against attacks, including magical attacks
-
-Boots of Quicksilver (Luna's Boots):
-	Adlez can move more quickly
-
-Skeleton Key:
-	Only unlocks the Temple of the Void. Nothing else unlocks the Temple of the Void.
-
-Seals:
-	Possessing a seal attracts enemies from the dungeon it was retrieved from
-	Destroyed seals become fast travel devices that take you to the location where they were destroyed
-
 	
+Overworld Enemies - Natural animals are corrupted versions of themselves (mutants/giant/malevolent)
+	High Desert:
+		- Snakes:
+		- Scorpions:
+		- Spiders:
+	Coastal Rocky Shore: 
+		- Crabs:
+		- Bears:
+	Coastal Sand Beach:
+		- Crabs:
+		- Alligators:
+		- Orca / Killer Whales:
+	Red-rock Desert: 
+		- Lizards:
+		- Snakes:
+	Temperate Rain Forest: 
+		- Bears:
+		- Wolves:
+	Graveyard/"Barrow Downs":
+		- Ghosts:
+		- Skeletons:
+	Swamp:
+		- Wil-o-the-Wisps:
+		- Zombies:
