@@ -11,6 +11,8 @@ const sunRiseColor = new Color('rgb(255, 114, 118)') // light red
 const sunSetColor = new Color('rgb(255, 191, 0)') // Amber
 
 const Consts = {
+  ADLEZ_INITIAL_SCREEN: { row: 1, col: 1 },
+  ADLEZ_INITIAL_SPAWN_POS: { x: 0, y: 0, z: 0},
   AMBIENT_DAY_INTENSITY: 1,
   AMBIENT_DAY_NIGHT_COLOR: ambientDayNightColor,
   AMBIENT_NIGHT_COLOR: ambientNightColor,
@@ -49,6 +51,8 @@ const Consts = {
 
 export default Consts
 export const {
+  ADLEZ_INITIAL_SCREEN,
+  ADLEZ_INITIAL_SPAWN_POS,
   AMBIENT_DAY_INTENSITY,
   AMBIENT_DAY_NIGHT_COLOR,
   AMBIENT_NIGHT_COLOR,

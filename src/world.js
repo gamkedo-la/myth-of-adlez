@@ -1,6 +1,7 @@
 import { CameraHelper } from 'three'
 
 // Globals
+const Consts = require('./globals/constants')
 const { DIRECTIONS } = require('./globals/directions')
 
 // Systems
@@ -14,10 +15,14 @@ const { createCamera } = require('./components/camera')
 const { createScene } = require('./components/scene')
 const { createLights } = require('./components/lights')
 
+// Entities
+const { Adlez } = require('./entities/adlez')
+
 let camera = null
 let scene = null
 let renderer = null
 let loop = null
+let adlez = null
 
 class World {
   constructor (container) {
@@ -37,11 +42,15 @@ class World {
   }
 
   async init () {
-    const { earth, enemies, spawnPoints, colliders } = await loadScreen(1, 1)
+    const { earth, enemies, spawnPoints, colliders } = await loadScreen(Consts.ADLEZ_INITIAL_SCREEN.row, Consts.ADLEZ_INITIAL_SCREEN.col)
+    adlez = new Adlez()
+    await adlez.init()
+
     earth.tick = (deltaTime) => {
       // Do nothing, perhaps do nothing unless changing screens?
     }
-    scene.add(earth, ...enemies, ...colliders)
+    scene.add(adlez.model, earth, ...enemies, ...colliders)
+    loop.addAdlez(adlez)
     loop.addEntity(earth)
     loop.addEntities(enemies)
   }
