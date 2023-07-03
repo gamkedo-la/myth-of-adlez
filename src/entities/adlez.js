@@ -14,13 +14,8 @@ export default class Adlez {
     const modelData = await adlezLoader.loadAsync('./meshes/characters/adlez.glb')
     modelData.scene.traverse(child => {
       child.receiveShadow = true
-      // if (child.name === 'Adlez') {
-      //   child.receiveShadow = true
-      //   this.model = child
-      // }
     })
     this.model = modelData.scene
-    this.model.scale.set(2, 2, 2)
   }
 
   tick (deltaTime) {}
