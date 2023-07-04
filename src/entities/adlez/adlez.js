@@ -5,6 +5,7 @@ let adlezLoader = null
 let walkSpeed = 2
 let runSpeed = 3
 let position = { x: 0, y: 0, z: 0 }
+let rotation = 0
 
 export default class Adlez {
   constructor (spawnPos = { x: 0, y: 0, z: 0 }, inputHandler) {
@@ -31,6 +32,10 @@ export default class Adlez {
 
     processActionsWithDeltaTime(timeProps.deltaTime, this.inputHandler)
     this.model.position.set(position.x, position.y, position.z)
+    if (rotation !== null && Math.abs(rotation - this.model.rotation.z) > 0.00001) {
+      console.log(`Model: ${this.model.rotation.z}, Rotation: ${rotation}`)
+      this.model.rotation.z = rotation
+    }
   }
 
   getPosition () {
@@ -82,13 +87,16 @@ function processLeftMoves (deltaTime, actions) {
     // Walk up and left
     position.x -= (walkSpeed * 0.707) * deltaTime
     position.y += (walkSpeed * 0.707) * deltaTime
+    rotation = Math.PI / 4
   } else if (actions.has(PLAYER_ACTIONS.MOVE_DOWN)) {
     // Walk down and left
     position.x -= (walkSpeed * 0.707) * deltaTime
     position.y -= (walkSpeed * 0.707) * deltaTime
+    rotation = 3 * Math.PI / 4
   } else {
     // Walk left
     position.x -= (walkSpeed * 0.707) * deltaTime
+    rotation = Math.PI / 2
   }
 }
 
@@ -97,24 +105,29 @@ function processRightMoves (deltaTime, actions) {
     // Walk up and right
     position.x += (walkSpeed * 0.707) * deltaTime
     position.y += (walkSpeed * 0.707) * deltaTime
+    rotation = 7 * Math.PI / 4
   } else if (actions.has(PLAYER_ACTIONS.MOVE_DOWN)) {
     // Walk down and right
     position.x += (walkSpeed * 0.707) * deltaTime
     position.y -= (walkSpeed * 0.707) * deltaTime
+    rotation = 5 * Math.PI / 4
   } else {
     // Walk right
     position.x += (walkSpeed * 0.707) * deltaTime
+    rotation = 3 * Math.PI / 2
   }
 }
 
 function processUpMoves (deltaTime, actions) {
   // Walk up; no need to check for left or right
   position.y += walkSpeed * deltaTime
+  rotation = 0
 }
 
 function processDownMoves (deltaTime, actions) {
   // Walk down; no need to check for left or right
   position.y -= walkSpeed * deltaTime
+  rotation = Math.PI
 }
 
 export { Adlez }

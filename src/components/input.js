@@ -1,6 +1,6 @@
 import GamepadInput from "./gamepadInput"
 import KeyboardInput from "./keyboardInput"
-import KEYS from "../globals/keyboard"
+import KEYS, { M } from "../globals/keyboard"
 import BUTTONS from "../globals/gamepad"
 import PLAYER_ACTIONS from "../globals/actions"
 
@@ -101,43 +101,45 @@ function getActionsFromKeyboard (keyboard) {
       if (action) downActions.add(action)
     })
 
-    if (justActions.has(PLAYER_ACTIONS.MOVE_LEFT)) {
-      if (justActions.has(PLAYER_ACTIONS.MOVE_RIGHT)) {
-        justActions.delete(PLAYER_ACTIONS.MOVE_LEFT)
-        justActions.delete(PLAYER_ACTIONS.MOVE_RIGHT)
-      } else {
-        downActions.delete(PLAYER_ACTIONS.MOVE_RIGHT)
-        actions.add(PLAYER_ACTIONS.MOVE_LEFT)
-      }
-    }
-
-    if (justActions.has(PLAYER_ACTIONS.MOVE_RIGHT)) {
+    if (justActions.size > 0) {
       if (justActions.has(PLAYER_ACTIONS.MOVE_LEFT)) {
-        justActions.delete(PLAYER_ACTIONS.MOVE_LEFT)
-        justActions.delete(PLAYER_ACTIONS.MOVE_RIGHT)
-      } else {
-        downActions.delete(PLAYER_ACTIONS.MOVE_LEFT)
-        actions.add(PLAYER_ACTIONS.MOVE_RIGHT)
+        if (justActions.has(PLAYER_ACTIONS.MOVE_RIGHT)) {
+          justActions.delete(PLAYER_ACTIONS.MOVE_LEFT)
+          justActions.delete(PLAYER_ACTIONS.MOVE_RIGHT)
+        } else {
+          downActions.delete(PLAYER_ACTIONS.MOVE_RIGHT)
+          actions.add(PLAYER_ACTIONS.MOVE_LEFT)
+        }
       }
-    }
-
-    if (justActions.has(PLAYER_ACTIONS.MOVE_UP)) {
-      if (justActions.has(PLAYER_ACTIONS.MOVE_DOWN)) {
-        justActions.delete(PLAYER_ACTIONS.MOVE_UP)
-        justActions.delete(PLAYER_ACTIONS.MOVE_DOWN)
-      } else {
-        downActions.delete(PLAYER_ACTIONS.MOVE_DOWN)
-        actions.add(PLAYER_ACTIONS.MOVE_UP)
+  
+      if (justActions.has(PLAYER_ACTIONS.MOVE_RIGHT)) {
+        if (justActions.has(PLAYER_ACTIONS.MOVE_LEFT)) {
+          justActions.delete(PLAYER_ACTIONS.MOVE_LEFT)
+          justActions.delete(PLAYER_ACTIONS.MOVE_RIGHT)
+        } else {
+          downActions.delete(PLAYER_ACTIONS.MOVE_LEFT)
+          actions.add(PLAYER_ACTIONS.MOVE_RIGHT)
+        }
       }
-    }
-
-    if (justActions.has(PLAYER_ACTIONS.MOVE_DOWN)) {
+  
       if (justActions.has(PLAYER_ACTIONS.MOVE_UP)) {
-        justActions.delete(PLAYER_ACTIONS.MOVE_UP)
-        justActions.delete(PLAYER_ACTIONS.MOVE_DOWN)
-      } else {
-        downActions.delete(PLAYER_ACTIONS.MOVE_UP)
-        actions.add(PLAYER_ACTIONS.MOVE_DOWN)
+        if (justActions.has(PLAYER_ACTIONS.MOVE_DOWN)) {
+          justActions.delete(PLAYER_ACTIONS.MOVE_UP)
+          justActions.delete(PLAYER_ACTIONS.MOVE_DOWN)
+        } else {
+          downActions.delete(PLAYER_ACTIONS.MOVE_DOWN)
+          actions.add(PLAYER_ACTIONS.MOVE_UP)
+        }
+      }
+  
+      if (justActions.has(PLAYER_ACTIONS.MOVE_DOWN)) {
+        if (justActions.has(PLAYER_ACTIONS.MOVE_UP)) {
+          justActions.delete(PLAYER_ACTIONS.MOVE_UP)
+          justActions.delete(PLAYER_ACTIONS.MOVE_DOWN)
+        } else {
+          downActions.delete(PLAYER_ACTIONS.MOVE_UP)
+          actions.add(PLAYER_ACTIONS.MOVE_DOWN)
+        }
       }
     }
 
@@ -173,16 +175,16 @@ function actionForButton (button) {
 
 function actionForKey (key) {
   switch (key) {
-    case KEYS.UP:
+    case KEYS.UP_ARROW:
     case KEYS.W:
       return PLAYER_ACTIONS.MOVE_UP
-    case KEYS.DOWN:
+    case KEYS.DOWN_ARROW:
     case KEYS.S:
       return PLAYER_ACTIONS.MOVE_DOWN
-    case KEYS.LEFT:
+    case KEYS.LEFT_ARROW:
     case KEYS.A:
       return PLAYER_ACTIONS.MOVE_LEFT
-    case KEYS.RIGHT:
+    case KEYS.RIGHT_ARROW:
     case KEYS.D:
       return PLAYER_ACTIONS.MOVE_RIGHT
     case KEYS.SPACE: return PLAYER_ACTIONS.ATTACK_PRIMARY
