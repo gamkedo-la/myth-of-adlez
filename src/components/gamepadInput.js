@@ -18,7 +18,7 @@ export default class GamepadInput {
     })
   }
 
-  tick (deltaTime) {
+  tick (timeProps) {
     if (!this.pad) return
 
     this.pad.buttons.forEach((button, index) => {

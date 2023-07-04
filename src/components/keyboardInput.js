@@ -10,11 +10,13 @@ export default class KeyboardInput {
 
     window.addEventListener('keydown', (e) => {
       if (downKeys.has(e.key)) return
+      justDownKeys.add(e.key)
       downKeys.add(e.key)
     })
 
     window.addEventListener('keyup', (e) => {
       if (!downKeys.has(e.key)) return
+      justUpKeys.add(e.key)
       downKeys.delete(e.key)
     })
   }

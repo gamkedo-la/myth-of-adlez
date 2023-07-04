@@ -51,6 +51,10 @@ export default class Loop {
     this.renderer.setAnimationLoop(null)
   }
 
+  addInput (input) {
+    entities.push(input)
+  }
+
   addAdlez (adlez) {
     entities.push(adlez)
   }
