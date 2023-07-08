@@ -52,7 +52,7 @@ class World {
     earth.tick = (deltaTime) => {
       // Do nothing, perhaps do nothing unless changing screens?
     }
-    scene.add(adlez.model, earth, ...enemies, ...colliders)
+    scene.add(adlez.skeleton, adlez.model, earth, ...enemies, ...colliders)
     loop.addInput(input)
     loop.addAdlez(adlez)
     loop.addEntity(earth)
