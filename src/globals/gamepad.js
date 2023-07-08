@@ -15,7 +15,15 @@ const BUTTONS = {
   DPAD_DOWN: 13, // Xbox: D-Pad Down, PS: D-Pad Down
   DPAD_LEFT: 14, // Xbox: D-Pad Left, PS: D-Pad Left
   DPAD_RIGHT: 15, // Xbox: D-Pad Right, PS: D-Pad Right
-  LOGO: 16 // Xbox: Xbox Logo, PS: PS Logo
+  LOGO: 16, // Xbox: Xbox Logo, PS: PS Logo
+  TOUCH_PAD: 17 // PS: Touch Pad
+}
+
+const AXES = {
+  LEFT_STICK_X: 0,
+  LEFT_STICK_Y: 1,
+  RIGHT_STICK_X: 2,
+  RIGHT_STICK_Y: 3
 }
 
 export default BUTTONS
@@ -38,3 +46,10 @@ export const {
   DPAD_RIGHT,
   LOGO
 } = BUTTONS
+
+export const {
+  LEFT_STICK_X,
+  LEFT_STICK_Y,
+  RIGHT_STICK_X,
+  RIGHT_STICK_Y
+} = AXES

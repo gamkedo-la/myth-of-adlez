@@ -41,6 +41,8 @@ function getActionsFromGamepad (gamepad) {
   const justDownButtons = gamepad.getJustDownButtons()
   const downButtons = gamepad.getDownButtons()
 
+  if (justDownButtons.size === 0 && downButtons.size === 0) return
+
   // Check for pause
   if (justDownButtons.has(BUTTONS.START)) {
     actions.add(PLAYER_ACTIONS.PAUSE)
@@ -57,12 +59,83 @@ function getActionsFromGamepad (gamepad) {
   if (justDownButtons.has(BUTTONS.X_SQUARE)) actions.add(PLAYER_ACTIONS.ATTACK_PRIMARY)
   if (justDownButtons.has(BUTTONS.A_X)) actions.add(PLAYER_ACTIONS.ATTACK_SECONDARY)
 
+  // if (!actions.has(PLAYER_ACTIONS.ATTACK_PRIMARY) && !actions.has(PLAYER_ACTIONS.ATTACK_SECONDARY)) {
+  //   // Not attacking, so check for movement
+  //   if (downButtons.has(BUTTONS.DPAD_LEFT)) actions.add(PLAYER_ACTIONS.MOVE_LEFT)
+  //   if (downButtons.has(BUTTONS.DPAD_RIGHT)) actions.add(PLAYER_ACTIONS.MOVE_RIGHT)
+  //   if (downButtons.has(BUTTONS.DPAD_UP)) actions.add(PLAYER_ACTIONS.MOVE_UP)
+  //   if (downButtons.has(BUTTONS.DPAD_DOWN)) actions.add(PLAYER_ACTIONS.MOVE_DOWN)
+  // }
+
   if (!actions.has(PLAYER_ACTIONS.ATTACK_PRIMARY) && !actions.has(PLAYER_ACTIONS.ATTACK_SECONDARY)) {
     // Not attacking, so check for movement
+    const justActions = new Set()
+    justDownButtons.forEach(button => {
+      const action = actionForButton(button)
+      if (action) justActions.add(action)
+    })
+    const downActions = new Set()
+    downButtons.forEach(button => {
+      const action = actionForButton(button)
+      if (action) downActions.add(action)
+    })
+
+    if (justActions.size > 0) {
+      if (justActions.has(PLAYER_ACTIONS.MOVE_LEFT)) {
+        if (justActions.has(PLAYER_ACTIONS.MOVE_RIGHT)) {
+          justActions.delete(PLAYER_ACTIONS.MOVE_LEFT)
+          justActions.delete(PLAYER_ACTIONS.MOVE_RIGHT)
+        } else {
+          downActions.delete(PLAYER_ACTIONS.MOVE_RIGHT)
+          actions.add(PLAYER_ACTIONS.MOVE_LEFT)
+        }
+      }
+  
+      if (justActions.has(PLAYER_ACTIONS.MOVE_RIGHT)) {
+        if (justActions.has(PLAYER_ACTIONS.MOVE_LEFT)) {
+          justActions.delete(PLAYER_ACTIONS.MOVE_LEFT)
+          justActions.delete(PLAYER_ACTIONS.MOVE_RIGHT)
+        } else {
+          downActions.delete(PLAYER_ACTIONS.MOVE_LEFT)
+          actions.add(PLAYER_ACTIONS.MOVE_RIGHT)
+        }
+      }
+  
+      if (justActions.has(PLAYER_ACTIONS.MOVE_UP)) {
+        if (justActions.has(PLAYER_ACTIONS.MOVE_DOWN)) {
+          justActions.delete(PLAYER_ACTIONS.MOVE_UP)
+          justActions.delete(PLAYER_ACTIONS.MOVE_DOWN)
+        } else {
+          downActions.delete(PLAYER_ACTIONS.MOVE_DOWN)
+          actions.add(PLAYER_ACTIONS.MOVE_UP)
+        }
+      }
+  
+      if (justActions.has(PLAYER_ACTIONS.MOVE_DOWN)) {
+        if (justActions.has(PLAYER_ACTIONS.MOVE_UP)) {
+          justActions.delete(PLAYER_ACTIONS.MOVE_UP)
+          justActions.delete(PLAYER_ACTIONS.MOVE_DOWN)
+        } else {
+          downActions.delete(PLAYER_ACTIONS.MOVE_UP)
+          actions.add(PLAYER_ACTIONS.MOVE_DOWN)
+        }
+      }
+    }
+
     if (downButtons.has(BUTTONS.DPAD_LEFT)) actions.add(PLAYER_ACTIONS.MOVE_LEFT)
     if (downButtons.has(BUTTONS.DPAD_RIGHT)) actions.add(PLAYER_ACTIONS.MOVE_RIGHT)
     if (downButtons.has(BUTTONS.DPAD_UP)) actions.add(PLAYER_ACTIONS.MOVE_UP)
     if (downButtons.has(BUTTONS.DPAD_DOWN)) actions.add(PLAYER_ACTIONS.MOVE_DOWN)
+
+    if (actions.has(PLAYER_ACTIONS.MOVE_LEFT) && actions.has(PLAYER_ACTIONS.MOVE_RIGHT)) {
+      actions.delete(PLAYER_ACTIONS.MOVE_LEFT)
+      actions.delete(PLAYER_ACTIONS.MOVE_RIGHT)
+    }
+
+    if (actions.has(PLAYER_ACTIONS.MOVE_UP) && actions.has(PLAYER_ACTIONS.MOVE_DOWN)) {
+      actions.delete(PLAYER_ACTIONS.MOVE_UP)
+      actions.delete(PLAYER_ACTIONS.MOVE_DOWN)
+    }
   }
 }
 
