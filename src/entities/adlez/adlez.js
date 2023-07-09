@@ -1,18 +1,12 @@
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
-import * as THREE from 'three'
+import AnimationController from '../animationController'
 import PLAYER_ACTIONS from '../../globals/actions'
+import adlezActions from './adlezActions'
 
 let adlezLoader = null
 let walkSpeed = 2
 let runSpeed = 3
-const allActions = []
-const baseActions = {
-  _TPose: { weight: 0 },
-  idle: { weight: 1 },
-  walk: { weight: 0 },
-  run: { weight: 0 }
-}
-let animationMixer = null
+
 let position = { x: 0, y: 0, z: 0 }
 let rotation = 0
 
@@ -25,7 +19,6 @@ export default class Adlez {
     this.spawnPos = spawnPos
     this.inputHandler = inputHandler
     this.model = null
-    this.skeleton = null
   }
 
   async init () {
@@ -33,17 +26,7 @@ export default class Adlez {
     modelData.scene.traverse(child => {
       child.receiveShadow = true
     })
-    this.skeleton = new THREE.SkeletonHelper(modelData.scene)
-    this.skeleton.visible = false
-
-    const animations = modelData.animations
-    animationMixer = new THREE.AnimationMixer(modelData.scene)
-    for (const clip of animations) {
-      const action = animationMixer.clipAction(clip)
-      activateAction(action)
-      baseActions[action._clip.name].action = action
-      allActions.push(action)
-    }
+    this.animationController  = new AnimationController(modelData.scene, modelData.animations, adlezActions, adlezActions.idle)
 
     this.model = modelData.scene
     this.model.position.set(position.x, position.y, position.z)
@@ -52,19 +35,17 @@ export default class Adlez {
   tick (timeProps) {
     if (!this.model) return
 
-    processActionsWithDeltaTime(timeProps.deltaTime, this.inputHandler)
+    processActionsWithDeltaTime(timeProps.deltaTime, this.inputHandler, this.animationController)
     this.model.position.set(position.x, position.y, position.z)
     if (rotation !== null && Math.abs(rotation - this.model.rotation.z) > 0.00001) {
       this.model.rotation.z = rotation
     }
 
-    for (const action of allActions) {
-      const clip = action.getClip()
-      const settings = baseActions[clip.name] // || additiveActions[ clip.name ]
-      settings.weight = action.getEffectiveWeight()
-    }
+    this.animationController.tick(timeProps.deltaTime)
+  }
 
-    animationMixer.update(timeProps.deltaTime)
+  getSkeleton () {
+    return this.animationController.skeleton
   }
 
   getPosition () {
@@ -92,7 +73,7 @@ export default class Adlez {
   }
 }
 
-function processActionsWithDeltaTime (deltaTime, inputHandler) {
+function processActionsWithDeltaTime (deltaTime, inputHandler, animationController) {
   const actions = inputHandler.getActions()
   if (actions.has(PLAYER_ACTIONS.ATTACK_PRIMARY)) {
     console.log('attack primary')
@@ -101,12 +82,30 @@ function processActionsWithDeltaTime (deltaTime, inputHandler) {
   } else {
     if (actions.has(PLAYER_ACTIONS.MOVE_LEFT)) {
       processLeftMoves(deltaTime, actions)
+      if (animationController.currentBaseAction !== adlezActions.walk) {
+
+        animationController.newAction(adlezActions.walk.name, 0.5)
+      }
     } else if (actions.has(PLAYER_ACTIONS.MOVE_RIGHT)) {
       processRightMoves(deltaTime, actions)
+      if (animationController.currentBaseAction !== adlezActions.walk) {
+        animationController.newAction(adlezActions.walk.name, 0.5)
+      }
     } else if (actions.has(PLAYER_ACTIONS.MOVE_UP)) {
       processUpMoves(deltaTime, actions)
+      if (animationController.currentBaseAction !== adlezActions.walk) {
+        animationController.newAction(adlezActions.walk.name, 0.5)
+      }
     } else if (actions.has(PLAYER_ACTIONS.MOVE_DOWN)) {
       processDownMoves(deltaTime, actions)
+      if (animationController.currentBaseAction !== adlezActions.walk) {
+        animationController.newAction(adlezActions.walk.name, 0.5)
+      }
+    } else {
+      // No movement
+      if (animationController.currentBaseAction !== adlezActions.idle) {
+        animationController.newAction(adlezActions.idle.name, 0.5)
+      }
     }
   }
 }
@@ -157,19 +156,6 @@ function processDownMoves (deltaTime, actions) {
   // Walk down; no need to check for left or right
   position.y -= walkSpeed * deltaTime
   rotation = Math.PI
-}
-
-function activateAction (action) {
-  const clip = action.getClip()
-  const settings = baseActions[clip.name] // || additiveActions[clip.name]
-  setWeight(action, settings.weight)
-  action.play()
-}
-
-function setWeight(action, weight) {
-  action.enabled = true
-  action.setEffectiveTimeScale(1)
-  action.setEffectiveWeight(weight)
 }
 
 export { Adlez }

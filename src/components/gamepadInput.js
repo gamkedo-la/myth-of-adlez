@@ -24,17 +24,11 @@ export default class GamepadInput {
 
     this.pad.buttons.forEach((button, index) => {
       if (button.pressed) {
-        if (index === 14) {
-          console.log('left pressed')
-        }
         if (!downButtons.has(index)) {
           justDownButtons.add(index)
           downButtons.add(index)
         }
       } else {
-        if (index === 14) {
-          console.log('left released')
-        }
         if (downButtons.has(index)) {
           justUpButtons.add(index)
           downButtons.delete(index)

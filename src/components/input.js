@@ -59,14 +59,6 @@ function getActionsFromGamepad (gamepad) {
   if (justDownButtons.has(BUTTONS.X_SQUARE)) actions.add(PLAYER_ACTIONS.ATTACK_PRIMARY)
   if (justDownButtons.has(BUTTONS.A_X)) actions.add(PLAYER_ACTIONS.ATTACK_SECONDARY)
 
-  // if (!actions.has(PLAYER_ACTIONS.ATTACK_PRIMARY) && !actions.has(PLAYER_ACTIONS.ATTACK_SECONDARY)) {
-  //   // Not attacking, so check for movement
-  //   if (downButtons.has(BUTTONS.DPAD_LEFT)) actions.add(PLAYER_ACTIONS.MOVE_LEFT)
-  //   if (downButtons.has(BUTTONS.DPAD_RIGHT)) actions.add(PLAYER_ACTIONS.MOVE_RIGHT)
-  //   if (downButtons.has(BUTTONS.DPAD_UP)) actions.add(PLAYER_ACTIONS.MOVE_UP)
-  //   if (downButtons.has(BUTTONS.DPAD_DOWN)) actions.add(PLAYER_ACTIONS.MOVE_DOWN)
-  // }
-
   if (!actions.has(PLAYER_ACTIONS.ATTACK_PRIMARY) && !actions.has(PLAYER_ACTIONS.ATTACK_SECONDARY)) {
     // Not attacking, so check for movement
     const justActions = new Set()
