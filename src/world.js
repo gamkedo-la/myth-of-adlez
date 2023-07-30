@@ -1,5 +1,3 @@
-import { CameraHelper } from 'three'
-
 // Globals
 const Consts = require('./globals/constants')
 const { DIRECTIONS } = require('./globals/directions')
@@ -8,6 +6,7 @@ const { DIRECTIONS } = require('./globals/directions')
 const { createRenderer } = require('./systems/renderer')
 const { Resizer } = require('./systems/resizer')
 const { Loop } = require('./systems/loop')
+const { PhysicsWorld } = require('./physicsWorld')
 
 // Components
 const { Input } = require('./components/input')
@@ -24,6 +23,7 @@ let camera = null
 let scene = null
 let renderer = null
 let loop = null
+let physicsWorld = null
 let adlez = null
 
 class World {
@@ -32,10 +32,12 @@ class World {
     camera = createCamera()
     scene = createScene()
     renderer = createRenderer()
+    physicsWorld = new PhysicsWorld(scene)
     loop = new Loop(camera, scene, renderer)
 
     const { AMBIENT_LIGHT, SUN } = createLights()
     loop.addEntity(SUN)
+    loop.addEntity(physicsWorld)
 
     scene.add(AMBIENT_LIGHT, SUN)
 

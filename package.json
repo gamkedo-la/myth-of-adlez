@@ -25,6 +25,9 @@
     "webpack-dev-server": "^4.15.0"
   },
   "dependencies": {
+    "cannon-es": "^0.20.0",
+    "cannon-es-debugger": "^1.0.0",
+    "path-browserify": "^1.0.1",
     "three": "^0.152.2"
   }
 }

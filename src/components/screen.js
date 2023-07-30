@@ -9,6 +9,7 @@ async function loadScreen(row, col) {
   const enemies = []
   const spawnPoints = []
   const colliders = []
+  const triggers = []
   screenData.scene.traverse(child => {
     child.receiveShadow = true
     const childName = child.name?.toLowerCase() || ''
@@ -24,6 +25,9 @@ async function loadScreen(row, col) {
     } else if (childType === 'collider') {
       child.visible = false
       colliders.push(child)
+    } else if (childType === 'trigger') {
+      child.visible = false
+      triggers.push(child)
     }
   })
 
