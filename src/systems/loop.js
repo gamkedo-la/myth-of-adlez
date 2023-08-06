@@ -16,6 +16,14 @@ let moonIsRising = false
 let moonIsSetting = false
 let moonPhase = MOON_PHASES[dayCount % MOON_PHASES.length]
 
+/** @typedef {Loop} Loop */
+/**
+ * @class Loop
+ * @classdesc The main game loop
+ * @param {PerspectiveCamera} camera Main camera
+ * @param {Scene} scene The Game Scene
+ * @param {WebGLRenderer} renderer The WebGL Renderer
+ */
 export default class Loop {
   constructor (camera, scene, renderer) {
     this.camera = camera
@@ -99,3 +107,18 @@ function updateCalendar (deltaTime) {
 }
 
 export { Loop }
+
+/**
+ * @typedef {Object} TimeProps
+ * @property {Number} deltaTime How many milliseconds have passed since the last tick
+ * @property {Number} dayCount How many days since the start of the game
+ * @property {Number} timeSinceSunrise How many milliseconds since sunrise
+ * @property {Number} timeSinceSunset How many milliseconds since sunset
+ * @property {Boolean} isDay Whether it is currently day
+ * @property {Boolean} isNight Whether it is currently night
+ * @property {Boolean} sunIsRising Whether the sun is currently rising
+ * @property {Boolean} sunIsSetting Whether the sun is currently setting
+ * @property {Boolean} moonIsRising Whether the moon is currently rising
+ * @property {Boolean} moonIsSetting Whether the moon is currently setting
+ * @property {'FULL' | 'GIBBOUS' | 'HALF' | 'CRESCENT' | 'NEW'} moonPhase The current moon phase
+ */

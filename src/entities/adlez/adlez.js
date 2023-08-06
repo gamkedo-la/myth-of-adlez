@@ -3,6 +3,9 @@ import AnimationController from '../animationController'
 import PLAYER_ACTIONS from '../../globals/actions'
 import adlezActions from './adlezActions'
 
+/** @type { import ('../../physicsWorld').PhysicsWorld } */
+let physicsWorld = null
+
 let adlezLoader = null
 let walkSpeed = 2
 let runSpeed = 3
@@ -10,17 +13,24 @@ let runSpeed = 3
 let position = { x: 0, y: 0, z: 0 }
 let rotation = 0
 
+/** @typedef {Adlez} Adlez */
 export default class Adlez {
-  constructor (spawnPos = { x: 0, y: 0, z: 0 }, inputHandler) {
+  constructor (spawnPos = { x: 0, y: 0, z: 0 }, inputHandler, physWorld) {
     adlezLoader = new GLTFLoader()
+    physicsWorld = physWorld
     position.x = spawnPos.x
     position.y = spawnPos.y
     position.z = spawnPos.z
     this.spawnPos = spawnPos
     this.inputHandler = inputHandler
     this.model = null
+    this.body = null
   }
 
+  /**
+   * Asynchronously loads the model and animations
+   * @returns {Promise<void>}
+   * */
   async init () {
     const modelData = await adlezLoader.loadAsync('./meshes/characters/adlez.glb')
     modelData.scene.traverse(child => {
@@ -30,8 +40,16 @@ export default class Adlez {
 
     this.model = modelData.scene
     this.model.position.set(position.x, position.y, position.z)
+    // Positive 90 degree (Math.PI / 2) rotation around X-axis results in cylinder "top" being up
+    this.body = physicsWorld.createAndAddBody(position.x, position.y, position.z, Math.PI / 2, 0, 0, {
+      type: 'cylinder',
+      radius: 1
+    })
   }
 
+  /**
+   * @param {import('../../systems/loop').TimeProps} timeProps
+   */
   tick (timeProps) {
     if (!this.model) return
 

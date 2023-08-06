@@ -8,3 +8,7 @@ function createScene () {
 }
 
 export { createScene }
+
+/**
+ * @typedef {import('three').Scene} Scene
+ */

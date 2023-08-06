@@ -18,12 +18,18 @@ const { createLights } = require('./components/lights')
 // Entities
 const { Adlez } = require('./entities/adlez/adlez')
 
+/** @type {import('./components/input').Input} */
 let input = null
+/** @type {import('./components/camera').PerspectiveCamera} */
 let camera = null
+/** @type {import('./components/scene').Scene} */
 let scene = null
+/** @type {import('./systems/renderer').Renderer} */
 let renderer = null
 let loop = null
+/** @type {import('./physicsWorld').PhysicsWorld} */
 let physicsWorld = null
+/** @type {import('../src/entities/adlez/adlez').Adlez} */
 let adlez = null
 
 class World {
@@ -33,6 +39,7 @@ class World {
     scene = createScene()
     renderer = createRenderer()
     physicsWorld = new PhysicsWorld(scene)
+    /** @type {import('./systems/loop').Loop} */
     loop = new Loop(camera, scene, renderer)
 
     const { AMBIENT_LIGHT, SUN } = createLights()
@@ -48,7 +55,7 @@ class World {
 
   async init () {
     const { earth, enemies, spawnPoints, colliders } = await loadScreen(Consts.ADLEZ_INITIAL_SCREEN.row, Consts.ADLEZ_INITIAL_SCREEN.col)
-    adlez = new Adlez(Consts.ADLEZ_INITIAL_SPAWN_POS, input)
+    adlez = new Adlez(Consts.ADLEZ_INITIAL_SPAWN_POS, input, physicsWorld)
     await adlez.init()
 
     earth.tick = (deltaTime) => {

@@ -7,6 +7,7 @@ import { DEBUG } from './globals/gameStates'
 
 let cylinderBody = null
 
+/** @typedef {PhysicsWorld} PhysicsWorld */
 export default class PhysicsWorld {
   constructor(scene) {
     this.scene = scene
@@ -45,6 +46,42 @@ export default class PhysicsWorld {
 
     // console.log(`Sphere Body Y: ${sphereBody.position.y}; Delta Time: ${timeProps.deltaTime}`)
   }
+
+  /**
+   * Creates a CANNON.js physics body and adds it to the world
+   * @param {Number} x X position for the body
+   * @param {Number} y Y position for the body
+   * @param {Number} z Z position for the body
+   * @param {Number} rx X rotation for the body in radians
+   * @param {Number} ry Y rotation for the body in radians
+   * @param {Number} rz Z rotation for the body in radians
+   * @param {Object} shape Configuration object for the shape
+   * @returns {CANNON.Body} The created body
+   */
+  createAndAddBody(x, y, z, rx, ry, rz, shape)  {
+    const cannonShape = getCannonShape(shape)
+    const body = new CANNON.Body({
+      type: CANNON.Body.STATIC,
+      shape: cannonShape,
+    })
+    body.quaternion.setFromEuler(rx, ry, rz)
+    body.position.set(x, y, z)
+    this.world.addBody(body)
+    return body
+  }
 }
 
 export { PhysicsWorld }
+
+function getCannonShape(shape) {
+  switch (shape.type) {
+    case 'sphere':
+      return new CANNON.Sphere(shape.radius)
+    case 'box':
+      return new CANNON.Box(new CANNON.Vec3(shape.width, shape.depth, shape.height))
+    case 'cylinder':
+      return new CANNON.Cylinder(shape.topRadius || shape.radius, shape.bottomRadius || shape.radius, shape.height || (2 * shape.radius), shape.segments || 8)
+    default:
+      throw new Error(`Invalid shape: ${shape}`)
+  }
+}

@@ -12,3 +12,7 @@ function createRenderer () {
 }
 
 export { createRenderer }
+
+/**
+ * @typedef {import('three').WebGLRenderer} Renderer
+ */

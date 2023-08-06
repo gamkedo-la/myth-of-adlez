@@ -10,3 +10,7 @@ function createCamera () {
 }
 
 export { createCamera }
+
+/**
+ * @typedef {import('three').PerspectiveCamera} PerspectiveCamera
+ */
