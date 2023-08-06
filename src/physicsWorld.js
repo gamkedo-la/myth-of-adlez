@@ -5,7 +5,7 @@ import { DEBUG } from './globals/gameStates'
 
 //Don't need gravity. Do need to figure out how to detect "triggers"
 
-let sphereBody = null
+let cylinderBody = null
 
 export default class PhysicsWorld {
   constructor(scene) {
@@ -13,16 +13,20 @@ export default class PhysicsWorld {
     this.world = new CANNON.World({
       gravity: new CANNON.Vec3(0, 0, -9.82), // m/s²
     })
+
     this.debugRenderer = new CannonDebugger(this.scene, this.world)
 
     // Create a sphere body
     const radius = 1 // m
-    sphereBody = new CANNON.Body({
+    cylinderBody = new CANNON.Body({
       mass: 5, // kg
-      shape: new CANNON.Sphere(radius),
+      // shape: new CANNON.Sphere(radius),
+      shape: new CANNON.Cylinder(radius, radius, 2 * radius, 8),
     })
-    sphereBody.position.set(0, 0, 10) // m
-    this.world.addBody(sphereBody)
+    // Positive rotation around X-axis results in cylinder "top" radius being up
+    cylinderBody.quaternion.setFromEuler(Math.PI / 2, 0, 0) // make it face up
+    cylinderBody.position.set(0, 0, 10) // m
+    this.world.addBody(cylinderBody)
 
     // Create a static plane for the ground
     const groundBody = new CANNON.Body({
