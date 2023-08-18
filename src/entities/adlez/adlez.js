@@ -144,6 +144,8 @@ function processLeftMoves (deltaTime, actions) {
     position.x -= (walkSpeed * 0.707) * deltaTime
     rotation = Math.PI / 2
   }
+
+  this.body.position.set(position.x, position.y, position.z)
 }
 
 function processRightMoves (deltaTime, actions) {
