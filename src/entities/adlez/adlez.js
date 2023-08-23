@@ -41,9 +41,10 @@ export default class Adlez {
     this.model = modelData.scene
     this.model.position.set(position.x, position.y, position.z)
     // Positive 90 degree (Math.PI / 2) rotation around X-axis results in cylinder "top" being up
-    body = physicsWorld.createAndAddBody(position.x, position.y, position.z, Math.PI / 2, 0, 0, {
+    body = physicsWorld.createAndAddBody(position.x, position.y, position.z + 1.125, Math.PI / 2, 0, 0, {
       type: 'cylinder',
-      radius: 1
+      radius: 0.4,
+      height: 2,
     })
   }
 
@@ -145,7 +146,7 @@ function processLeftMoves (deltaTime, actions) {
     rotation = Math.PI / 2
   }
 
-  body.position.set(position.x, position.y, position.z)
+  body.position.set(position.x, position.y, body.position.z)
 }
 
 function processRightMoves (deltaTime, actions) {
@@ -165,7 +166,7 @@ function processRightMoves (deltaTime, actions) {
     rotation = 3 * Math.PI / 2
   }
 
-  body.position.set(position.x, position.y, position.z)
+  body.position.set(position.x, position.y, body.position.z)
 }
 
 function processUpMoves (deltaTime, actions) {
@@ -173,7 +174,7 @@ function processUpMoves (deltaTime, actions) {
   position.y += walkSpeed * deltaTime
   rotation = 0
 
-  body.position.set(position.x, position.y, position.z)
+  body.position.set(position.x, position.y, body.position.z)
 }
 
 function processDownMoves (deltaTime, actions) {
@@ -181,7 +182,7 @@ function processDownMoves (deltaTime, actions) {
   position.y -= walkSpeed * deltaTime
   rotation = Math.PI
 
-  body.position.set(position.x, position.y, position.z)
+  body.position.set(position.x, position.y, body.position.z)
 }
 
 export { Adlez }

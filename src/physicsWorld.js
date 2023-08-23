@@ -3,9 +3,7 @@ import * as CANNON from 'cannon-es'
 import CannonDebugger from 'cannon-es-debugger'
 import { DEBUG } from './globals/gameStates'
 
-//Don't need gravity. Do need to figure out how to detect "triggers"
-
-let cylinderBody = null
+// Do need to figure out how to detect "triggers"
 
 /** @typedef {PhysicsWorld} PhysicsWorld */
 export default class PhysicsWorld {
@@ -16,35 +14,12 @@ export default class PhysicsWorld {
     })
 
     this.debugRenderer = new CannonDebugger(this.scene, this.world)
-
-    // Create a sphere body
-    const radius = 1 // m
-    cylinderBody = new CANNON.Body({
-      mass: 5, // kg
-      // shape: new CANNON.Sphere(radius),
-      shape: new CANNON.Cylinder(radius, radius, 2 * radius, 8),
-    })
-    // Positive rotation around X-axis results in cylinder "top" radius being up
-    cylinderBody.quaternion.setFromEuler(Math.PI / 2, 0, 0) // make it face up
-    cylinderBody.position.set(0, 0, 10) // m
-    this.world.addBody(cylinderBody)
-
-    // Create a static plane for the ground
-    const groundBody = new CANNON.Body({
-      type: CANNON.Body.STATIC, // can also be achieved by setting the mass to 0
-      shape: new CANNON.Plane(),
-    })
-    groundBody.position.set(0, 0, 1) // m
-    groundBody.quaternion.setFromEuler(0, 0, Math.PI / 2) // make it face up
-    this.world.addBody(groundBody)
   }
 
   tick(timeProps) {
     this.world.step(1 / 60, timeProps.deltaTime)
     if (DEBUG) this.debugRenderer.update()
-    // Copy coordinates from Cannon.js to Three.js
-
-    // console.log(`Sphere Body Y: ${sphereBody.position.y}; Delta Time: ${timeProps.deltaTime}`)
+    // Do we need to copy coordinates from Cannon.js to Three.js
   }
 
   /**
@@ -85,3 +60,27 @@ function getCannonShape(shape) {
       throw new Error(`Invalid shape: ${shape}`)
   }
 }
+
+/*
+---- THESE NOTES ARE FROM THE CANNON.JS TUTORIAL ----
+    // Create a sphere body
+    const radius = 1 // m
+    cylinderBody = new CANNON.Body({
+      mass: 5, // kg
+      // shape: new CANNON.Sphere(radius),
+      shape: new CANNON.Cylinder(radius, radius, 2 * radius, 8),
+    })
+    // *** Positive rotation around X-axis results in cylinder "top" radius being up *** //
+    cylinderBody.quaternion.setFromEuler(Math.PI / 2, 0, 0) // make it face up
+    cylinderBody.position.set(0, 0, 10) // m
+    this.world.addBody(cylinderBody)
+
+    // Create a static plane for the ground
+    const groundBody = new CANNON.Body({
+      type: CANNON.Body.STATIC, // can also be achieved by setting the mass to 0
+      shape: new CANNON.Plane(),
+    })
+    groundBody.position.set(0, 0, 1) // m
+    groundBody.quaternion.setFromEuler(0, 0, Math.PI / 2) // make it face up
+    this.world.addBody(groundBody)
+    */
