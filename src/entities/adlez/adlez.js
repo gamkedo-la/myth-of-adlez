@@ -7,6 +7,7 @@ import adlezActions from './adlezActions'
 let physicsWorld = null
 
 let adlezLoader = null
+let body = null
 let walkSpeed = 2
 let runSpeed = 3
 
@@ -24,7 +25,6 @@ export default class Adlez {
     this.spawnPos = spawnPos
     this.inputHandler = inputHandler
     this.model = null
-    this.body = null
   }
 
   /**
@@ -41,7 +41,7 @@ export default class Adlez {
     this.model = modelData.scene
     this.model.position.set(position.x, position.y, position.z)
     // Positive 90 degree (Math.PI / 2) rotation around X-axis results in cylinder "top" being up
-    this.body = physicsWorld.createAndAddBody(position.x, position.y, position.z, Math.PI / 2, 0, 0, {
+    body = physicsWorld.createAndAddBody(position.x, position.y, position.z, Math.PI / 2, 0, 0, {
       type: 'cylinder',
       radius: 1
     })
@@ -145,7 +145,7 @@ function processLeftMoves (deltaTime, actions) {
     rotation = Math.PI / 2
   }
 
-  this.body.position.set(position.x, position.y, position.z)
+  body.position.set(position.x, position.y, position.z)
 }
 
 function processRightMoves (deltaTime, actions) {
@@ -164,18 +164,24 @@ function processRightMoves (deltaTime, actions) {
     position.x += (walkSpeed * 0.707) * deltaTime
     rotation = 3 * Math.PI / 2
   }
+
+  body.position.set(position.x, position.y, position.z)
 }
 
 function processUpMoves (deltaTime, actions) {
   // Walk up; no need to check for left or right
   position.y += walkSpeed * deltaTime
   rotation = 0
+
+  body.position.set(position.x, position.y, position.z)
 }
 
 function processDownMoves (deltaTime, actions) {
   // Walk down; no need to check for left or right
   position.y -= walkSpeed * deltaTime
   rotation = Math.PI
+
+  body.position.set(position.x, position.y, position.z)
 }
 
 export { Adlez }
