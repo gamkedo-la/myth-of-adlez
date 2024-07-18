@@ -3,8 +3,8 @@ The Adversary was banished to outer darkness and the Gate of the World was seale
 
 Basic Idea:
 - Collect the Seven Seals by defeating the seven Guardians. Use a specific item in a specific place to destroy each Seal. Destroying all seven Seals opens the Gate of the World, allowing the player to enter the final dungeon and destroy the Adversary.
-- Each seal must be destroyed using a specific item, in a specific location
-- Clues about what item and what location are associated with each seal are located in both the overworld and the dungeons
+- Each Seal must be destroyed using a specific item, in a specific location
+- Clues about what item and what location are associated with each Seal are located in both the overworld and the dungeons
 - Expect to need a clue from both the overworld and a dungeon to know how/where to destroy a seal
 - Clues might be freely given by people whose homes you visit (a-la "Its a secret to everybody"), you might need to pay for a clue or accomplish a task to receive the clue (i.e. "grumble, grumble"), they might also exist as engravings on tablets, cliffs, or dungeon walls
 
@@ -39,7 +39,7 @@ Moon:
 
 Tools/Weapons:
 	Club (given on first screen - It's dangerous to go alone)
-	Copper/Steel Sword (can be purchased - maybe a fetch quest too?)
+	Copper/Steel Swords (can be purchased - maybe a fetch quest too?)
 	Flint & Steel (burn bushes/light torches/etc after a random number of attempts)
 	Bow (can be purchased)
 	Arrow (cost 1 coin each, just like in LoZ)
@@ -61,8 +61,8 @@ Special Items:
 	Sword of Death / Morda's Sword - Deals Magical Damage, more than the Steel Sword
 
 Seals:
-	Possessing a seal attracts enemies from the dungeon it was retrieved from - this means Temple/Dungeon enemies in the overworld
-	Destroyed seals become fast travel devices that take you to the location where they were destroyed
+	Possessing a Seal attracts enemies from the dungeon it was retrieved from - this means Temple/Dungeon enemies in the overworld
+	Destroyed Seals become fast travel devices that take you to the location where they were destroyed
 
 	Seal of Fire / Sol's Seal
 		Located in the Temple of the Sun
